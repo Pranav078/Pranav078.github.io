@@ -13,16 +13,27 @@
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
   <!--Owl Carousel CSS-->
-  <link rel="stylesheet" href="static/app/css/owl.carousel.css">
+  <link rel="stylesheet" href="templates/app/static/app/css/owl.carousel.css">
 
   <!--FontAwesome CSS-->
-  <link rel="stylesheet" href="static/app/css/all.min.css">
+  <link rel="stylesheet" href="templates/app/static/app/css/all.min.css">
 
   <!--Custom CSS-->
-  <link rel="stylesheet" href="static/app/css/style.css">
+  <link rel="stylesheet" href="templates/app/static/app/css/style.css">
+
+  <meta name="theme-color" content="#10847E">
+
+  <!-- Manifest json file -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="pharmacy.jpeg">
+  <link rel="apple-touch-icon" href="pharmacy512.png">
+
+  <script src="app.js">
+
+  </script>
 
 
-  <title>Pharmanic</title>
+  <title>Pharmanic PWA</title>
 
 <link rel="icon" href="https://img.icons8.com/external-wanicon-two-tone-wanicon/50/000000/external-pharmacy-university-courses-wanicon-two-tone-wanicon.png">
 
@@ -245,6 +256,17 @@
   <script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
   <script src="{% static 'app/js/all.min.js' %}"></script>
   <script src="{% static 'app/js/myscript.js' %}"></script>
+  <script>
+      if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+      navigator.serviceWorker
+        .register("/serviceWorker.js")
+        .then(res => console.log("service worker registered"))
+        .catch(err => console.log("service worker not registered", err))
+    })
+  }
+
+    </script>
 </body>
 
 </html>
